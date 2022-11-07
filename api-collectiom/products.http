@@ -1,0 +1,55 @@
+@baseUrl = http://localhost:3000/api
+
+@resourceName = products
+
+## Categories
+
+# @name getAllCategories
+
+GET {{baseUrl}}/{{resourceName}}
+
+###
+
+# @name filterProducts
+// Tìm ra tên đúng
+GET {{baseUrl}}/{{resourceName}}?name=Kids
+
+###
+// Tìm ra tên chứa từ khóa
+GET {{baseUrl}}/{{resourceName}}?name_like=Kids
+
+###
+
+# @name pagination
+GET {{baseUrl}}/{{resourceName}}?_page=1&_limit=5
+
+###
+
+# @name sort
+GET {{baseUrl}}/{{resourceName}}?_sort=price&_order=asc
+
+###
+
+# @name addNewCategories
+POST {{baseUrl}}/{{resourceName}}
+Content-Type: application/json
+
+{
+    "name": "Laptop"
+}
+
+###
+
+# @name updateCategories
+PATCH {{baseUrl}}/{{resourceName}}/2
+Content-Type: application/json
+
+{
+    "name": "Laptop New"
+}
+
+###
+
+# @name removeCategories
+DELETE  {{baseUrl}}/{{resourceName}}/2
+Content-Type: application/json
